@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Pet Rescue Single Page</h1>
+    <h2>Lost and Found Pets</h2>
+    <ul>
+        {% for pet in pets %}
+            <li>{{ pet.name }} - {{ pet.color }} - {{ pet.pet_type }} - {{ pet.age }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Report Lost or Found Pet</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
